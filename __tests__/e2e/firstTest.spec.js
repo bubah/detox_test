@@ -10,4 +10,9 @@ describe('Example', () => {
   it('should have "See Your Changes" section', async () => {
     await expect(element(by.text('See Your Changes'))).toBeVisible();
   });
+
+  it('should scroll page down to view The Basic info', async () => {
+    await element(by.id('scrollable')).scroll(100, 'down', NaN, 0.85);
+    await expect(element(by.text('The Basics'))).toBeVisible();
+  })
 });

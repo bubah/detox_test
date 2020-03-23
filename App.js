@@ -6,8 +6,9 @@
  * @flow
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
+  FlatList,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -30,6 +31,7 @@ const App: () => React$Node = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
+          testID="scrollable"
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
@@ -40,20 +42,20 @@ const App: () => React$Node = () => {
           )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
+              <Text selectable={true} style={styles.sectionTitle}>Step One</Text>
+              <Text selectable={true} style={styles.sectionDescription}>
+                Edit <Text selectable={true} style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
+              <Text selectable={true} style={styles.sectionTitle}>See Your Changes</Text>
+              <Text selectable={true} style={styles.sectionDescription}>
                 <ReloadInstructions />
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text selectable={true} style={styles.sectionTitle}>Debug</Text>
               <Text style={styles.sectionDescription}>
                 <DebugInstructions />
               </Text>
@@ -71,6 +73,39 @@ const App: () => React$Node = () => {
     </>
   );
 };
+
+// class ScrollableComponent  extends Component {
+//   constructor(props) {
+//     this.state = {
+//       firstFewItems: [ 'one', 'two', 'three']
+//     }
+//   }
+
+//   renderListItem({item, index}) {
+//     return(
+//       <View>{item}</View>
+//     )
+//   }
+
+//   render() {
+//     return(
+//       <React.Fragment>
+//         <ScrollView
+//           key='scrollview'
+//           removeClippedSubviews={true}
+//         >
+//           <FlatList
+//             key='first_three_news_item'
+//             data={this.state.firstFewItems}
+//             renderItem={this.renderListItem}
+//             keyExtractor={item => item.title}
+//             initialNumToRender={1}
+//           />
+//         </ScrollView>
+//       </React.Fragment>
+//     )
+//   }
+// }
 
 const styles = StyleSheet.create({
   scrollView: {
