@@ -40,7 +40,6 @@
       }
     }
   },
-  
   "detox" : {
     "test-runner": "jest",
     "configurations": {
