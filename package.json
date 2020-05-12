@@ -29,8 +29,8 @@
   },
   "detox": {
     "test-runner": "jest",
-    "specs": "/__tests__/e2e/firstTest.spec.js",
-    "runner-config": "__tests__/e2e/config.json",
+    "specs": "./e2e/firstTest.spec.js",
+    "runner-config": "./e2e/config.json",
     "configurations": {
       "ios.release": {
         "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/detox_test.app",
@@ -39,5 +39,20 @@
         "name": "iPhone X"
       }
     }
-  }
+  },
+  
+  "detox" : {
+    "test-runner": "jest",
+    "configurations": {
+        "android.emu.debug": {
+            "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+            "build":
+            "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+            "type": "android.emulator",
+            "device": {
+              "avdName": "Nexus_5X_API_29"
+            }
+        }
+    }
+}
 }
