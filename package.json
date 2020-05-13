@@ -40,6 +40,7 @@
       }
     }
   },
+
   "detox" : {
     "test-runner": "jest",
     "configurations": {
@@ -49,7 +50,7 @@
             "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
             "type": "android.emulator",
             "device": {
-              "avdName": "Nexus_5X_API_29"
+              "avdName": "Nexus_5X_API_26"
             }
         }
     }
